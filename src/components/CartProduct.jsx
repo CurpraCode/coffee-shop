@@ -1,34 +1,39 @@
-import React from "react"
-import styled from "styled-components"
-import {useStateValue} from "../StateProvider"
+import React from "react";
+import styled from "styled-components";
+import { useStateValue } from "../StateProvider";
 
-const CartProduct = ({ id, title, image, discount, price, description }) =>{
-const [{basket}, dispatch] = useStateValue();
+const CartProduct = ({ id, title, image, discount, price, description }) => {
+  const [{ basket }, dispatch] = useStateValue();
 
-const removeFromBasket = () =>{
+  const removeFromBasket = () => {
     dispatch({
-        type: "REMOVE_FROM_BASKET",
-        id: id
-    })
-}
-    return(
-        <div>
-        <InnerBox>
+      type: "REMOVE_FROM_BASKET",
+      id: id,
+    });
+  };
+  return (
+    <Card>
+      <InnerBox>
+        <Dis>
           <div>
             <img src={image} alt="item" />
           </div>
           <div className="detail-card">
             <h2>{title}</h2>
             <p>{description}</p>
+            <p>{price}</p>
           </div>
-          <p>{price}</p>
-          <button onClick={removeFromBasket}>REMOVE TO CART</button>
-        </InnerBox>
-      </div>
-    )
-}
+        </Dis>
+        <button onClick={removeFromBasket}>REMOVE TO CART</button>
+      </InnerBox>
+    </Card>
+  );
+};
 
-export default CartProduct
+export default CartProduct;
+const Card = styled.div`
+margin:1rem;
+`
 
 const InnerBox = styled.div`
   border: 1px solid rgba(67, 172, 247, 0.96);
@@ -40,10 +45,11 @@ const InnerBox = styled.div`
   box-shadow: ${(props) => props.theme.cardShadow};
   text-align: center;
   padding: 0.5rem 0.5rem;
-/* width:100%; */
+  max-width:400px;
+margin:0 auto;
   img {
     width: 100%;
-    height: 260px;
+    height: 160px;
     border-radius: 1rem;
   }
   .detail-card {
@@ -73,3 +79,10 @@ const InnerBox = styled.div`
     margin-bottom: 1rem;
   }
 `;
+
+const Dis = styled.div`
+display: flex;
+justify-content:space-between;
+align-items:center;
+
+`
