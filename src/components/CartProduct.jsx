@@ -60,7 +60,7 @@ const CartProduct = ({
             </div>
           </div>
         </Dis>
-        <button onClick={removeFromBasket}>REMOVE TO CART</button>
+        <button onClick={removeFromBasket}>REMOVE FROM CART</button>
       </InnerBox>
     </Card>
   );
@@ -72,13 +72,12 @@ const Card = styled.div`
 `;
 
 const InnerBox = styled.div`
-  border: 1px solid rgba(67, 172, 247, 0.96);
   margin: 1rem;
   flex: 1;
   border-radius: 2rem;
   border-radius: 12.8028px;
-  background-color: ${(props) => props.theme.cardColor};
-  box-shadow: ${(props) => props.theme.cardShadow};
+  background-color: #fff;
+  box-shadow: 0 0.25rem 0.5rem rgba(26, 26, 44, 0.05);
   text-align: center;
   padding: 0.5rem 0.5rem;
   max-width: 400px;
@@ -96,7 +95,7 @@ const InnerBox = styled.div`
     border: 0px;
     background-color: rgba(67, 172, 247, 0.96);
     box-shadow: 0 18.2571px 21.6157px -15.9059px #3189f4;
-    padding: 0.99rem 1.2rem;
+    padding: 0.69rem 0.9rem;
     color: white;
     border-radius: 2rem;
     margin-bottom: 1rem;

@@ -3,12 +3,15 @@ import CartProduct from "../components/CartProduct";
 import { useStateValue } from "../StateProvider";
 import Header from "../components/Header";
 import SubTotal from "../components/SubTotal";
+import styled from "styled-components"
 
 const Cart = () => {
   const [{ basket }] = useStateValue();
   return (
     <div>
       <Header />
+      <Dis>
+        <div>
       {basket.map((item) => {
         return (
           <CartProduct
@@ -23,9 +26,18 @@ const Cart = () => {
           />
         );
       })}
+      </div>
       <SubTotal />
+      </Dis>
+
     </div>
   );
 };
 
 export default Cart;
+
+const Dis =styled.div`
+display:flex;
+justify-content:space-evenly;
+flex-flow: wrap
+`

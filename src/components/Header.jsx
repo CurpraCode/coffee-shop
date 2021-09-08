@@ -11,7 +11,7 @@ const Header = () => {
     <Bg>
       <NavBar>
         <Link to="/">
-          <h1>CoffeeShop</h1>
+          <h2>CoffeeShop</h2>
         </Link>
 
         <Nav>
@@ -31,7 +31,8 @@ const Header = () => {
 export default Header;
 
 const Bg = styled.div`
-   background-color: pink;
+  background-color: #fff;
+  box-shadow: 0 0.25rem 0.5rem rgba(26, 26, 44, 0.05);
    margin-bottom: 3rem
 `
 
@@ -70,13 +71,13 @@ const Nav = styled.div`
     position: relative;
   }
   span {
-    background-color: red;
+    background-color: rgba(67, 172, 247, 0.96);
     position: absolute;
     top: -7px;
     left: 18px;
     color: white;
     text-decoration: none;
-    padding: 0.02rem 0.25rem;
-    border-radius: 5rem;
+    padding: 0.02rem 0.35rem;
+    border-radius: 10rem;
   }
 `;
