@@ -101,6 +101,9 @@ const InnerBox = styled.div`
     margin-bottom: 1rem;
     font-family: "Space Grotesk", sans-serif;
   }
+  span{
+    margin:1rem;
+  }
   a {
     text-decoration: none;
   }
