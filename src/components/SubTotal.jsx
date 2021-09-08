@@ -1,11 +1,16 @@
 import React from "react";
+import { getBasketTotal, getTotalItems } from "../Reducer";
+import { useStateValue } from "../StateProvider";
 
 const SubTotal = () => {
-    return(
-        <div>
+  const [{ basket }] = useStateValue();
 
-        </div>
-    )
-}
+  return (
+    <div>
+      <span>Sub-Total: ${getBasketTotal(basket)}</span>
+       <span>Total-items: {getTotalItems(basket)}</span>
+    </div>
+  );
+};
 
 export default SubTotal;

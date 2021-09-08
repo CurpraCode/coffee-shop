@@ -2,19 +2,29 @@ import React from "react";
 import styled from "styled-components";
 import { useStateValue } from "../StateProvider";
 
-const Product = ({ title, image, discount, price, description }) => {
+const Product = ({
+  id,
+  title,
+  image,
+  discount,
+  price,
+  description,
+  originalPrice,
+}) => {
   const [state, dispatch] = useStateValue();
 
   const addToBasket = () => {
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
-        id: 1,
+        id: id,
+        quantity: 1,
         title: title,
         image: image,
         price: price,
         description: description,
         discount: discount,
+        originalPrice: originalPrice,
       },
     });
   };
@@ -28,7 +38,15 @@ const Product = ({ title, image, discount, price, description }) => {
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
-        <p>{price}</p>
+        <div className="dis-flex">
+          <h4>${price}</h4>{" "}
+          {discount && (
+            <small>
+              <del>${originalPrice}</del>
+            </small>
+          )}
+        </div>
+
         <button onClick={addToBasket}>ADD TO CART</button>
       </InnerBox>
     </div>
@@ -47,7 +65,7 @@ const InnerBox = styled.div`
   box-shadow: ${(props) => props.theme.cardShadow};
   text-align: center;
   padding: 0.5rem 0.5rem;
-/* width:100%; */
+  /* width:100%; */
   img {
     width: 100%;
     height: 260px;
@@ -78,5 +96,14 @@ const InnerBox = styled.div`
   h2 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+  }
+  .dis-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    del{
+      color:red;
+      margin-left: 1rem;
+    }
   }
 `;

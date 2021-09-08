@@ -2,9 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import { useStateValue } from "../StateProvider";
 
-const CartProduct = ({ id, title, image, discount, price, description }) => {
+const CartProduct = ({
+  id,
+  title,
+  image,
+  price,
+  discount,
+  description,
+  originalPrice,
+  quantity,
+}) => {
   const [{ basket }, dispatch] = useStateValue();
 
+  const plusQuantity = () => {
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: id,
+      },
+    });
+  };
+
+  const minusQuantity = () => {
+    dispatch({
+      type: "REMOVE_FROM_BASKET",
+      id: id,
+    });
+  };
   const removeFromBasket = () => {
     dispatch({
       type: "REMOVE_FROM_BASKET",
@@ -21,7 +45,20 @@ const CartProduct = ({ id, title, image, discount, price, description }) => {
           <div className="detail-card">
             <h2>{title}</h2>
             <p>{description}</p>
-            <p>{price}</p>
+            <div className="dis-flex">
+              <h4>${(price * quantity)}</h4>
+           { (
+             discount
+           ) && <small>
+              <del>${(originalPrice * quantity)}</del>
+            </small>}
+        
+            </div>
+            <div className="cartItem__buttons">
+            <button onClick={minusQuantity}>-</button>
+            <span>{quantity}</span>
+            <button onClick={plusQuantity}>+</button>
+          </div>
           </div>
         </Dis>
         <button onClick={removeFromBasket}>REMOVE TO CART</button>
@@ -32,8 +69,8 @@ const CartProduct = ({ id, title, image, discount, price, description }) => {
 
 export default CartProduct;
 const Card = styled.div`
-margin:1rem;
-`
+  margin: 1rem;
+`;
 
 const InnerBox = styled.div`
   border: 1px solid rgba(67, 172, 247, 0.96);
@@ -45,8 +82,8 @@ const InnerBox = styled.div`
   box-shadow: ${(props) => props.theme.cardShadow};
   text-align: center;
   padding: 0.5rem 0.5rem;
-  max-width:400px;
-margin:0 auto;
+  max-width: 400px;
+  margin: 0 auto;
   img {
     width: 100%;
     height: 160px;
@@ -78,11 +115,19 @@ margin:0 auto;
     font-size: 1.4rem;
     margin-bottom: 1rem;
   }
+  .dis-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    del {
+      color: red;
+      margin-left: 1rem;
+    }
+  }
 `;
 
 const Dis = styled.div`
-display: flex;
-justify-content:space-between;
-align-items:center;
-
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;

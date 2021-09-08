@@ -14,48 +14,60 @@ const Home = () => {
       <Header />
       <Box>
         <Product
+          id="1"
+          quantity={1}
           title="Fresh Cappucino"
           image={cappucino}
           description="Hot fresh Cappucino served well"
-          price="$20"
-          status="discount"
+          price={20}
         />
         <Product
+          id="2"
+          quantity={1}
           title="Baked Bread"
           image={bread}
           description="Freash Bread for your breakfast"
-          price="$15"
-          status="actual price"
+          originalPrice={15}
+          discount={5}
+          price={5}
         />
-         <Product
+        <Product
+          id="3"
+          quantity={1}
           title="Fresh Expresso"
           image={expresso}
           description="Hot fresh Expresso for your day"
-          price="$10"
-          status="free"
+          price={10}
         />
       </Box>
       <Box>
         <Product
+          id="4"
+          quantity={1}
           title="Fresh Juice"
           image={juice}
           description="Cool and Cold Juice for your taste"
-          price="$25"
-          status="actual price"
+          originalPrice={20}
+          discount={8}
+          price={8}
         />
         <Product
-          title="Baked Bread"
+          id="5"
+          quantity={1}
+          title="Cheesy Pizza"
           image={pizza}
           description="Yummy pizza at your reach now"
-          price="$30"
-          status="discount"
+          originalPrice={25}
+          discount={10}
+          price={10}
         />
-         <Product
+        <Product
+          id="6"
+          quantity={1}
           title="Fresh Expresso"
           image={expresso}
           description="Hot fresh Expresso for your day"
-          price="$10"
-          status="free"
+          price={10}
         />
       </Box>
     </div>
