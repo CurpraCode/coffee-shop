@@ -12,7 +12,7 @@ const CartProduct = ({
   originalPrice,
   quantity,
 }) => {
-  const [{ }, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
 
   const plusQuantity = () => {
     dispatch({
@@ -46,19 +46,18 @@ const CartProduct = ({
             <h2>{title}</h2>
             <p>{description}</p>
             <div className="dis-flex">
-              <h4>${(price * quantity)}</h4>
-           { (
-             discount
-           ) && <small>
-              <del>${(originalPrice * quantity)}</del>
-            </small>}
-        
+              <h4>${price * quantity}</h4>
+              {discount && (
+                <small>
+                  <del>${originalPrice * quantity}</del>
+                </small>
+              )}
             </div>
             <div className="cartItem__buttons">
-            <button onClick={minusQuantity}>-</button>
-            <span>{quantity}</span>
-            <button onClick={plusQuantity}>+</button>
-          </div>
+              <button onClick={minusQuantity}>-</button>
+              <span>{quantity}</span>
+              <button onClick={plusQuantity}>+</button>
+            </div>
           </div>
         </Dis>
         <button onClick={removeFromBasket}>REMOVE TO CART</button>
