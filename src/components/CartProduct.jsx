@@ -39,7 +39,7 @@ const CartProduct = ({
     <Card>
       <InnerBox>
         <Dis>
-          <div>
+          <div className="pic">
             <img src={image} alt="item" />
           </div>
           <div className="detail-card">
@@ -129,7 +129,11 @@ const Dis = styled.div`
   flex-direction:row;
   justify-content: space-between;
   align-items: center;
+  flex-flow:wrap;
   @media (max-width:400px){
     flex-direction:column;
+  }
+  .pic{
+    text-align:center;
   }
 `;
