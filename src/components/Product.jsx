@@ -11,7 +11,7 @@ const Product = ({
   description,
   originalPrice,
 }) => {
-  const [state, dispatch] = useStateValue();
+  const [ dispatch] = useStateValue();
 
   const addToBasket = () => {
     dispatch({
