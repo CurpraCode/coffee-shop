@@ -12,7 +12,7 @@ const CartProduct = ({
   originalPrice,
   quantity,
 }) => {
-  const [ dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
 
   const plusQuantity = () => {
     dispatch({
