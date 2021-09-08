@@ -39,5 +39,5 @@ export default Cart;
 const Dis =styled.div`
 display:flex;
 justify-content:space-evenly;
-flex-flow: wrap
+flex-flow: wrap;
 `
