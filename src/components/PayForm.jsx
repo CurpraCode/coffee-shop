@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { getBasketTotal } from "../Reducer";
+import { useStateValue } from "../StateProvider";
 
 const PayForm = () => {
+  const [{basket}] = useStateValue();
   return (
     <Container>
       <h2>Payment Page</h2>
@@ -12,7 +15,7 @@ const PayForm = () => {
         <h4>Card details</h4>
         <input type="text" placeholder="Card Name" required /> <br />
         <input type="number" placeholder="Card Number" required /> <br />
-        <button>Pay</button>
+        <button>Pay {getBasketTotal(basket)}</button>
       </Form>
     </Container>
   );
