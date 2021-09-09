@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
 import reducer, { initialState } from "./Reducer";
 import { StateProvider } from "./StateProvider";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path="/cart">
             <Cart />
+          </Route>
+          <Route exact path="/payment">
+            <Payment />
           </Route>
         </Switch>
       </Router>

@@ -100,6 +100,9 @@ const InnerBox = styled.div`
     border-radius: 2rem;
     margin-bottom: 1rem;
     font-family: "Space Grotesk", sans-serif;
+    :focus{
+      outline:none;
+    }
   }
   span{
     margin:1rem;
