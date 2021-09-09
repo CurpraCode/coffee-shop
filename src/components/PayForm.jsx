@@ -15,7 +15,7 @@ const PayForm = () => {
         <h4>Card details</h4>
         <input type="text" placeholder="Card Name" required /> <br />
         <input type="number" placeholder="Card Number" required /> <br />
-        <button>Pay {getBasketTotal(basket)}</button>
+        <button>Pay ${getBasketTotal(basket)}</button>
       </Form>
     </Container>
   );
