@@ -1,19 +1,31 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Confirmation } from "../components/Confirmation";
 import { useReactToPrint } from "react-to-print";
+import Spinner from "../components/Spinner";
 import styled from "styled-components";
 
 const Confirm = () => {
   const componentRef = useRef();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 5000);
+  }, []);
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
   return (
-    <Container>
-      <h2>CoffeeShop</h2>
-      <Confirmation ref={componentRef} />
-      <button onClick={handlePrint}>Print Message</button>
-    </Container>
+    <>
+      {loading === false ? (
+        <Container>
+          <h2>CoffeeShop</h2>
+          <Confirmation ref={componentRef} />
+          <button onClick={handlePrint}>Print Message</button>
+        </Container>
+      ) : (
+        <Spinner />
+      )}
+    </>
   );
 };
 
@@ -22,7 +34,7 @@ export default Confirm;
 const Container = styled.div`
   max-width: 580px;
   margin: 0 auto;
-  margin-top:5rem;
+  margin-top: 5rem;
   border-radius: 2rem;
   border-radius: 12.8028px;
   background-color: #fff;

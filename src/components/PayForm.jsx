@@ -1,24 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { getBasketTotal } from "../Reducer";
 import { useStateValue } from "../StateProvider";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const PayForm = () => {
   const [{ basket }] = useStateValue();
+  // const [loading, setLoading] = useState(true);
+  // useEffect(()=>{
+  //   setTimeout(()=> setLoading(false), 2000)
+  // }, [])
+  let history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/message")
+  };
+
   return (
     <Container>
       <h2>Payment Page</h2>
-      <Form action="">
-        <input type="text" name="name" placeholder="Full Name" required /> <br />
+      <Form onSubmit={handleSubmit}>
+        <input type="text" name="name" placeholder="Full Name" required />{" "}
+        <br />
         <input type="email" name="email" placeholder="Email" required /> <br />
         <input type="text" name="address" placeholder="Home Address" /> <br />
-        <input type="text" name="name" placeholder="Card Name" required /> <br />
-        <input type="number" name="number" placeholder="Card Number" required /> <br />
+        <input type="text" name="name" placeholder="Card Name" required />{" "}
+        <br />
+        <input
+          type="number"
+          name="number"
+          placeholder="Card Number"
+          required
+        />{" "}
+        <br />
         <div>
-        <Link to="/message">
-          <button type="submit" value="submit"> Pay ${getBasketTotal(basket)}</button>
-        </Link>
+          <button type="submit" value="submit" >
+            Pay ${getBasketTotal(basket)}
+          </button>
         </div>
       </Form>
     </Container>
@@ -54,10 +73,10 @@ const Form = styled.form`
   h4 {
     text-align: center;
   }
-  div{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   button {
     border: 0px;
@@ -67,7 +86,7 @@ const Form = styled.form`
     color: white;
     border-radius: 2rem;
     margin-bottom: 1rem;
-    text-align:center;
+    text-align: center;
     font-family: "Space Grotesk", sans-serif;
     :focus {
       outline: none;
