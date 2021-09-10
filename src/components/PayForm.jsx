@@ -16,6 +16,7 @@ const PayForm = () => {
   return (
     <Container>
       <h2>Payment Page</h2>
+      <p>Please enter your credit card details</p>
       <Form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Full Name" required />{" "}
         <br />
@@ -29,6 +30,7 @@ const PayForm = () => {
           placeholder="Card Number"
           required
         />{" "}
+        <input type="month" placeholder="expiry date" required />
         <br />
         <div>
           <button type="submit" value="submit">
@@ -46,7 +48,7 @@ const Container = styled.div`
   max-width: 380px;
   margin: 0 auto;
   width: 100%;
-  h2 {
+  h2, p {
     text-align: center;
   }
 `;

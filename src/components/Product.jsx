@@ -10,6 +10,7 @@ const Product = ({
   price,
   description,
   originalPrice,
+  status,
 }) => {
   const [state, dispatch] = useStateValue();
 
@@ -25,13 +26,15 @@ const Product = ({
         description: description,
         discount: discount,
         originalPrice: originalPrice,
+        status: status,
       },
     });
   };
   return (
     <div>
       <InnerBox>
-        <div>
+        <div className="img-div">
+          <span>{status}</span>
           <img src={image} alt="items" />
         </div>
         <div className="detail-card">
@@ -65,6 +68,18 @@ const InnerBox = styled.div`
   text-align: center;
   padding: 0.5rem 0.5rem;
   /* width:100%; */
+  .img-div{
+    position:relative;
+    span{
+       background-color: rgba(67, 172, 247, 0.591);
+    position: absolute;
+    top: -7px;
+    left: 18px;
+    color: white;
+    padding: 0.07rem 0.65rem;
+    border-radius: 2rem;
+    }
+  }
   img {
     width: 100%;
     height: 260px;
@@ -100,8 +115,8 @@ const InnerBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    del{
-      color:red;
+    del {
+      color: red;
       margin-left: 1rem;
     }
   }

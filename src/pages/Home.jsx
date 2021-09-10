@@ -7,6 +7,7 @@ import bread from "../assets/bread.jpg";
 import juice from "../assets/juice.jpg";
 import expresso from "../assets/expresso.jpg";
 import pizza from "../assets/pizza.jpg";
+import strawberry from "../assets/strawberry.jpg";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
           title="Fresh Cappucino"
           image={cappucino}
           description="Hot fresh Cappucino served well"
-          price={20}
+          price={28}
         />
         <Product
           id="2"
@@ -28,8 +29,9 @@ const Home = () => {
           image={bread}
           description="Freash Bread for your breakfast"
           originalPrice={15}
-          discount={5}
-          price={5}
+          discount={14.25}
+          price={14.25}
+          status="5%"
         />
         <Product
           id="3"
@@ -37,7 +39,7 @@ const Home = () => {
           title="Fresh Expresso"
           image={expresso}
           description="Hot fresh Expresso for your day"
-          price={10}
+          price={26}
         />
       </Box>
       <Box>
@@ -48,8 +50,9 @@ const Home = () => {
           image={juice}
           description="Cool and Cold Juice for your taste"
           originalPrice={20}
-          discount={8}
-          price={8}
+          discount={19.4}
+          price={19.4}
+          status="3%"
         />
         <Product
           id="5"
@@ -58,16 +61,17 @@ const Home = () => {
           image={pizza}
           description="Yummy pizza at your reach now"
           originalPrice={25}
-          discount={10}
-          price={10}
+          discount={24.5}
+          price={24.5}
+          status="2%"
         />
         <Product
           id="6"
           quantity={1}
           title="Fresh Expresso"
-          image={expresso}
+          image={strawberry}
           description="Hot fresh Expresso for your day"
-          price={10}
+          price={30}
         />
       </Box>
     </div>

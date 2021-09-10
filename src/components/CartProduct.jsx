@@ -11,6 +11,7 @@ const CartProduct = ({
   description,
   originalPrice,
   quantity,
+  status,
 }) => {
   const [{ basket }, dispatch] = useStateValue();
 
@@ -40,6 +41,7 @@ const CartProduct = ({
       <InnerBox>
         <Dis>
           <div className="pic">
+            <span>{status}</span>
             <img src={image} alt="item" />
           </div>
           <div className="detail-card">
@@ -141,5 +143,15 @@ const Dis = styled.div`
   }
   .pic{
     text-align:center;
+    position:relative;
+    span{
+       background-color: rgba(67, 172, 247, 0.591);
+    position: absolute;
+    top: -7px;
+    left: 18px;
+    color: white;
+    padding: 0.07rem 0.65rem;
+    border-radius: 2rem;
+    }
   }
 `;

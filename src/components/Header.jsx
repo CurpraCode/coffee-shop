@@ -44,6 +44,7 @@ const NavBar = styled.div`
   height: 70px;
   a {
     text-decoration: none;
+    color:rgba(67, 172, 247, 0.941);
   }
   @media screen and (max-width: 1024px) {
     margin-left: 70px;
