@@ -2,23 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { getBasketTotal } from "../Reducer";
 import { useStateValue } from "../StateProvider";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PayForm = () => {
-  const [{basket}] = useStateValue();
+  const [{ basket }] = useStateValue();
   return (
     <Container>
       <h2>Payment Page</h2>
       <Form action="">
-        <input type="text" placeholder="Full Name" required /> <br />
-        <input type="email" placeholder="Email" required /> <br />
-        <input type="text" placeholder="Home Address" /> <br />
-        <h4>Card details</h4>
-        <input type="text" placeholder="Card Name" required /> <br />
-        <input type="number" placeholder="Card Number" required /> <br />
+        <input type="text" name="name" placeholder="Full Name" required /> <br />
+        <input type="email" name="email" placeholder="Email" required /> <br />
+        <input type="text" name="address" placeholder="Home Address" /> <br />
+        <input type="text" name="name" placeholder="Card Name" required /> <br />
+        <input type="number" name="number" placeholder="Card Number" required /> <br />
+        <div>
         <Link to="/message">
-        <button>Pay ${getBasketTotal(basket)}</button>
+          <button type="submit" value="submit"> Pay ${getBasketTotal(basket)}</button>
         </Link>
+        </div>
       </Form>
     </Container>
   );
@@ -35,11 +36,11 @@ const Container = styled.div`
   }
 `;
 const Form = styled.form`
-width: 100%;
-max-width: 480px;
-margin: 0 auto;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
   input {
-    width: 100%;
+    width: 80%;
     margin: 1rem;
     border: 0px;
     border-radius: 2rem;
@@ -50,8 +51,13 @@ margin: 0 auto;
       outline: none;
     }
   }
-  h4{
-      text-align:center;
+  h4 {
+    text-align: center;
+  }
+  div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
   button {
     border: 0px;
@@ -61,6 +67,7 @@ margin: 0 auto;
     color: white;
     border-radius: 2rem;
     margin-bottom: 1rem;
+    text-align:center;
     font-family: "Space Grotesk", sans-serif;
     :focus {
       outline: none;
