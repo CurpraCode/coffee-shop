@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { getBasketTotal } from "../Reducer";
 import { useStateValue } from "../StateProvider";
+import {Link} from "react-router-dom";
 
 const PayForm = () => {
   const [{basket}] = useStateValue();
@@ -15,7 +16,9 @@ const PayForm = () => {
         <h4>Card details</h4>
         <input type="text" placeholder="Card Name" required /> <br />
         <input type="number" placeholder="Card Number" required /> <br />
+        <Link to="/message">
         <button>Pay ${getBasketTotal(basket)}</button>
+        </Link>
       </Form>
     </Container>
   );
