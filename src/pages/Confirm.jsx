@@ -18,7 +18,7 @@ const Confirm = () => {
     <>
       {loading === false ? (
         <Container>
-          <h2>CoffeeShop</h2>
+         
           <Confirmation ref={componentRef} />
           <button onClick={handlePrint}>Print Message</button>
         </Container>
@@ -51,4 +51,5 @@ const Container = styled.div`
     margin-bottom: 1rem;
     font-family: "Space Grotesk", sans-serif;
   }
+  
 `;

@@ -15,7 +15,6 @@ const Header = () => {
         </Link>
 
         <Nav>
-          <p>Order</p>
           <div>
             <Link to="/cart">
               <span>{basket?.length}</span>
@@ -33,8 +32,8 @@ export default Header;
 const Bg = styled.div`
   background-color: #fff;
   box-shadow: 0 0.25rem 0.5rem rgba(26, 26, 44, 0.05);
-   margin-bottom: 3rem
-`
+  margin-bottom: 3rem;
+`;
 
 const NavBar = styled.div`
   display: flex;

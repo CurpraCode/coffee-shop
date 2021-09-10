@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { getBasketTotal } from "../Reducer";
 import { useStateValue } from "../StateProvider";
@@ -6,15 +6,11 @@ import { useHistory } from "react-router-dom";
 
 const PayForm = () => {
   const [{ basket }] = useStateValue();
-  // const [loading, setLoading] = useState(true);
-  // useEffect(()=>{
-  //   setTimeout(()=> setLoading(false), 2000)
-  // }, [])
   let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/message")
+    history.push("/message");
   };
 
   return (
@@ -35,7 +31,7 @@ const PayForm = () => {
         />{" "}
         <br />
         <div>
-          <button type="submit" value="submit" >
+          <button type="submit" value="submit">
             Pay ${getBasketTotal(basket)}
           </button>
         </div>
@@ -47,8 +43,8 @@ const PayForm = () => {
 export default PayForm;
 
 const Container = styled.div`
-  /* max-width: 380px; */
-  /* margin: 0 auto; */
+  max-width: 380px;
+  margin: 0 auto;
   width: 100%;
   h2 {
     text-align: center;
@@ -59,7 +55,7 @@ const Form = styled.form`
   max-width: 480px;
   margin: 0 auto;
   input {
-    width: 80%;
+    width: 70%;
     margin: 1rem;
     border: 0px;
     border-radius: 2rem;
